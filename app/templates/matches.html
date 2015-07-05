@@ -1,0 +1,35 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <script type="text/javascript">
+
+    </script>
+    <form action="" method="post" name="matches">
+        {{ form.hidden_tag() }}
+
+        <h1>How you're being represented</h1>
+        <br>
+
+        {%for match in matchesYea%}
+            
+
+            <div class="row">
+                <div class="col-sm-6 col-sm-push-2">
+                {{match["name"]}} : {{match["size"]}}
+            </div>
+            <div class="col-sm-4"><script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=eugene.ioffe@gmail.com" 
+    data-button="donate" 
+    data-name="Donate" 
+    data-amount="50" 
+    data-shipping="0" 
+    data-tax="0" 
+    data-env="sandbox"
+></script>
+                </div>
+            </div>
+
+        {%endfor%}
+    
+    </form>
+{% endblock %}

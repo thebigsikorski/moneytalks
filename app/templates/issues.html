@@ -1,0 +1,53 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("keywords").focus();
+        };
+    </script>
+
+    <form action="" method="post" name="issues">
+        {{ form.hidden_tag() }}
+
+
+        <div class="row">
+    
+        
+        <div class="col-lg-12">
+        <div class="col-md-6">
+            
+            What issues do you care about?<br><br>
+            {% if keywordsCount < 4 %}
+                {{ form.keywords(size=5,class_="form-control") }}
+                <br>
+
+                {% for error in form.keywords.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                
+                <input type="submit" value="Go" class="button">
+                <br><br>
+            {%endif%}
+
+        </div>
+        </div>
+
+        
+        {%for keyword in keywordsInput%}
+            {{keyword}}
+            <br>
+        {%endfor%}
+
+
+        {% if keywordsCount >= 4 %}
+            <br>
+            <input type="button" value="Vote" class="button" onClick="javascript:window.location.href='/vote'">
+
+        {%endif%}
+
+        </div>
+
+    </form>
+{% endblock %}

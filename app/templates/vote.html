@@ -1,0 +1,76 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <script type="text/javascript">
+       function SelectButton(id, vote){
+            document.getElementById('myVotes').value += id + ':' + vote + ',';
+       }
+    </script>
+    <form action="" method="post" name="vote">
+        {{ form.hidden_tag() }}
+
+            {% for r in votes1 %}
+            <div style="background-color:#ffffff; opacity: .75; color: #747474;border-radius: 25px; margin: 10px">
+                <h2 class="header">{{key1}}</h2>
+                <div class="row">{{r["bill_id"]}}</div>
+                <div class="col-lg-10">{{r["summary_short"]}}</div>
+                <input type="button" value="Yea" class="button" style="background-color:#669900; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Yea')">
+                <input type="button" value="Nay" class="button" style="background-color:#FF7070; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Nay')">
+                <br>
+                <br>
+            </div>
+            {% endfor %}
+
+            {% for r in votes2 %}
+            <div style="background-color:#ffffff; opacity: .75; color: #747474;border-radius: 25px; margin: 10px">
+                <h2 class="header">{{key2}}</h2>
+                <div class="row">{{r["bill_id"]}}</div>
+                <div class="col-lg-12">{{r["summary_short"]}}</div>
+                <input type="button" value="Yea" class="button" style="background-color:#669900; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Yea')">
+                <input type="button" value="Nay" class="button" style="background-color:#FF7070; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Nay')">
+                <br>
+                <br>
+            </div>
+            {% endfor %}
+
+            {% for r in votes3 %}
+            <div style="background-color:#ffffff; opacity: .75; color: #747474;border-radius: 25px; margin: 10px">
+                <h2 class="header">{{key3}}</h2>
+                <div class="row">{{r["bill_id"]}}</div>
+                <div class="col-lg-12">{{r["summary_short"]}}</div>
+                <input type="button" value="Yea" class="button" style="background-color:#669900; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Yea')">
+                <input type="button" value="Nay" class="button" style="background-color:#FF7070; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Nay')">
+                <br>
+                <br>
+            </div>
+            {% endfor %}
+
+            {% for r in votes4 %}
+            <div style="background-color:#ffffff; opacity: .75; color: #747474;border-radius: 25px; margin: 10px">
+                <h2 class="header">{{key4}}</h2>
+                <div class="row">{{r["bill_id"]}}</div>
+                <div class="col-lg-12">{{r["summary_short"]}}</div>
+                <input type="button" value="Yea" class="button" style="background-color:#669900; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Yea')">
+                <input type="button" value="Nay" class="button" style="background-color:#FF7070; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Nay')">
+                <br>
+                <br>
+            </div>
+            {% endfor %}
+
+            {% for r in votes5 %}
+            <div style="background-color:#ffffff; opacity: .75; color: #747474;border-radius: 25px; margin: 10px">
+                <h2 class="header">{{key5}}</h2>
+                <div class="row">{{r["bill_id"]}}</div>
+                <div class="col-lg-12">{{r["summary_short"]}}</div>
+                <input type="button" value="Yea" class="button" style="background-color:#669900; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Yea')">
+                <input type="button" value="Nay" class="button" style="background-color:#FF7070; border: none; padding: 5px 10px 5px 10px" onClick="SelectButton('{{r["bill_id"]}}', 'Nay')">
+                <br>
+                <br>
+            </div>
+            {% endfor %}
+        
+   <input type="submit" value="Go" class="button">
+    
+    </form>
+{% endblock %}

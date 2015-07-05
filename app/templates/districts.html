@@ -1,0 +1,51 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <script type="text/javascript">
+
+    </script>
+    <form action="" method="post" name="districts">
+        {{ form.hidden_tag() }}
+
+        <div class="container">
+        {% if(zipcodeInput == "") %}
+        
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="intro-message">
+                          <h1>Money Talks</h1>
+                          <br/>
+                              <div class="form-group">
+                                <label class="col-xs-4 control-label label">Enter your Zipcode</label>
+            <div class="col-xs-5">
+                {{ form.zipcode(size=5,class_="form-control",maxlength=5) }}
+                {% for error in form.zipcode.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}<br>
+            
+                <input type="submit" value="Go" class="button">
+            
+
+            {% else %}
+            You entered: {{zipcodeInput}}
+            <br/><br/>
+            {% for r in data %}
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                {{r["first_name"]}} {{r["last_name"]}} 
+            </div>
+ 
+            </div>
+
+            {% endfor %}
+
+            <br/>
+            <input type="button" value="Continue-->" class="button" onClick="javascript:window.location.href='/issues'">
+            {% endif %}
+        </div>
+
+    </form>
+{% endblock %}
